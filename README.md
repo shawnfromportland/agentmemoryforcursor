@@ -30,8 +30,9 @@ By default we will assume:
 2. add these to your package.json "scripts" section:
 ```
 "git:discard": "git reset --hard HEAD && git clean -fd",
-"git:commit": "sh -c 'COMMIT_MSG=\"$1\"; git add . && git commit -m \"$COMMIT_MSG\" && echo \"### $COMMIT_MSG\" > scripts/.tmp_changelog_content.md && ts-node scripts/update-technical-changelog.ts --contentFile scripts/.tmp_changelog_content.md' --"
-  
+    "git:commit": "sh -c 'COMMIT_MSG=\"$1\"; git add . && git commit -m \"$COMMIT_MSG\" && ts-node scripts/update-technical-changelog.ts --contentFile scripts/.tmp_changelog_content.md' --",
+    "git:commit:push": "sh -c 'COMMIT_MSG=\"$1\"; git add . && git commit -m \"$COMMIT_MSG\" && ts-node scripts/update-technical-changelog.ts --contentFile scripts/.tmp_changelog_content.md --perform-amend && git push' --",
+    "git:push": "git push"
 ```
 3. (optional) edit @.cursor/rules/bootagent.mdc to reflect any unique considerations for your specific project.
 ### Verify it's working:
