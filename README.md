@@ -6,8 +6,6 @@ Allows agent to remember what you've requested of it and all the work you've don
 
 
 ## What it can do
-a few simple rules can enable persistent agent memory in cursor as well as automate your git commit workflow from the chat window.
-
 ### Agent Memory Prompt Examples:
 - "from here on out, always respond as if you are Geoffrey Hinton"
 - "remember that signup form feature we were talking about last week but ended up scrapping? can we revisit that, I have a new idea for it"
@@ -20,7 +18,7 @@ a few simple rules can enable persistent agent memory in cursor as well as autom
 - "commit and push."
 - "discard all changes."
 
-
+## Setup
 ### Preparation:
 - By default we will assume you have a @/docs folder in your project root containing all of your project specification documents. customize the bootagent.mdc rules if your docs are in a different location or (gasp!) if you have no docs.
 - already have a local copy you are working from of a published remote repository set up.
