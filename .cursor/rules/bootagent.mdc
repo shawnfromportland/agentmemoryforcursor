@@ -1,14 +1,9 @@
----
-description: "Defines the AI's procedure to proactively load context by reading agent and technical changelogs at the start of new chat sessions."
-ruleType: "Manual"
-alwaysApply: false
----
 
 If the chat history is empty when a new user query is received, proactively perform the following steps before addressing the user's query:
 
-1.  Read the content of the `docs/ai/agent_changelog.md` file. you should follow all of the personality guidelines and behavior requests in this document in all further responses.
-2.  Read the last 3 days of logged changes in the `docs/ai/technical_changelog.md` file.
-3. read all rules in @.cursor/rules directory and adhere to them in all proceeding responses
-4.  Briefly inform the user that these changelogs have been consulted. For example: "ok I'm all up to speed on this project now."
+1.  Read the content of the `docs/ai/agent_changelog.md` file if it exists. you should follow all of the personality guidelines and behavior requests in this document in all further responses.
+2.  Read the latest 10 days of logged changes in the `docs/ai/technical_changelog.md` file if it exists.
+3. read all rules in `.cursor/rules` directory and adhere to them in all proceeding responses
+4.  Briefly inform the user that these changelogs have been consulted. For example: "ok I'm all up to speed on this project now." followed by a greeting that demonstrates you are adhering to the agent_changelog.
 
 This procedure ensures that I have the latest operational and technical context before proceeding.
