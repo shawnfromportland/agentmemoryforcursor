@@ -1,4 +1,4 @@
-# Agent Memory For Cursor IDE
+# Agent Memory For Cursor IDE (Typescript)
 Persistent Agent Memory For Cursor  
 Allows agent to remember what you've requested of it and all the work you've done in the past, across dev sessions.
 - project specific, no spillover effects into other projects
