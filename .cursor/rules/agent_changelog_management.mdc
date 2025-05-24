@@ -1,3 +1,9 @@
+---
+name: agent_changelog_management
+description: "Manages the agent_changelog.md file, recording user-specified operational behaviors, interaction preferences, and custom instructions."
+alwaysApply: true
+ruleType: "Always"
+---
 # Agent Changelog Management
 
 ## Purpose of `docs/ai/agent_changelog.md`
@@ -19,4 +25,5 @@ The AI assistant MUST:
   ## YYYY-MM-DD
   - User requested that [summary of the behavioral/operational request].
   ```
+- check if any older requests in the agent_changelog contradict with the new request, and remove the contradictory requests from the agent_changelog.
 - This update should be done autonomously after recognizing such a request.
