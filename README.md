@@ -4,15 +4,14 @@ Persistent Agent Memory For Cursor
 ## What it can do
 a few simple rules can enable persistent agent memory in cursor as well as automate your git commit workflow from the chat window.
 
-**Examples:**
-### Agent Memory:
+### Agent Memory Prompt Examples:
 - "from here on out, always respond as if you are Geoffrey Hinton"
 - "remember that signup form feature we were talking about last week but ended up scrapping? can we revisit that, I have a new idea for it"
 - "remind me what we worked on last week? my brain is scrambled after the weekend and I can't remember."
 - "your name is Hal from here on out, and you can call me Dave."
 - "don't ever say 'okay' in your responses, spell it as 'ok' instead."
 
-### git automation from chat:
+### git automation from Chat Prompt Examples:
 - "commit the latest."
 - "commit and push."
 - "discard all changes."
