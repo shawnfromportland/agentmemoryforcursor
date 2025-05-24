@@ -40,6 +40,19 @@ const readContentFromFile = (filePath: string): string => {
 
 const updateChangelogFile = (newEntryContent: string): void => {
   try {
+    // Check if the changelog file exists
+    if (!fs.existsSync(TECHNICAL_CHANGELOG_PATH)) {
+      // If it doesn't exist, create it with a default header
+      const defaultHeader = `# Technical Changelog
+This changelog tracks significant technical changes, architectural decisions, and contributions to the project.
+Each entry should be linked to the relevant commit for easy reference.
+
+${CHANGELOG_HEADER_SEPARATOR}
+`;
+      fs.writeFileSync(TECHNICAL_CHANGELOG_PATH, defaultHeader, 'utf-8');
+      console.log(`Created technical changelog file at: ${TECHNICAL_CHANGELOG_PATH}`);
+    }
+
     const rawContent = fs.readFileSync(TECHNICAL_CHANGELOG_PATH, 'utf-8');
     const separatorIndex = rawContent.indexOf(`\n${CHANGELOG_HEADER_SEPARATOR}\n`);
 
