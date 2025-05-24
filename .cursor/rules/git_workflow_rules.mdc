@@ -1,0 +1,50 @@
+---
+description: "Defines the AI's automated workflow for handling 'git commit' and 'git discard' requests, including detailed technical changelog generation and script invocation."
+ruleType: "Agent Requested"
+alwaysApply: false
+---
+# Rule Name: Git Workflow Automation
+
+## Description:
+This rule outlines how the AI assistant should handle requests to commit or discard changes using the custom npm scripts. The goal is to streamline the development workflow by automating these common Git operations based on natural language commands from the user.
+
+### Committing Changes
+
+1.  **Trigger**: When the user asks to "commit," "commit changes," "commit this," "commit the latest," or uses similar explicit phrasing indicating a desire to save the current work.
+
+2.  **Clarify Ambiguity (If Necessary)**:
+    *   If the user's request to commit (from Trigger) is vague or could be interpreted in multiple ways (e.g., "should we save this?"), the AI MUST first seek clarification: "It sounds like you might want to commit the changes. Is that correct?"
+    *   If clarification was sought and the user confirms they *do not* want to commit, the process stops here. The subsequent steps are only followed if the intent to commit is clear (either initially explicit or clarified as such).
+
+3.  **Generate Commit Message**:
+    *   The AI will silently review changes made during the current interactive session.
+    *   The AI will generate a concise, conventional commit message (e.g., "feat: Implement user authentication flow", "fix: Corrected styling on login screen").
+
+4.  **Handle Commit Execution Based on Initial Command Clarity**:
+    *   **Path A: Explicit Initial Command (No Ambiguity Clarification Was Needed in Step 2)**
+        *   If the user's initial command (from Trigger) was explicit and unambiguous, the AI will use the auto-generated message from Step 3 and immediately proceed to Step 5 (Execute Commit). No confirmation of the message content is sought from the user before execution.
+    *   **Path B: Command Clarified as Commit (Ambiguity Was Resolved in Step 2)**
+        *   If the user's initial command was vague, and the AI successfully clarified in Step 2 that the user *does* want to commit:
+            *   The AI MUST present the auto-generated commit message (from Step 3) to the user for approval or modification. For example: "Proposed commit message: 'feat: Updated X and Y'. Is this okay, or would you like to change it?"
+            *   The AI proceeds to Step 5 (Execute Commit) only after the user explicitly approves or modifies the message. If the user rejects the message and provides no alternative, or cancels the action, the commit is not executed.
+
+5.  **Execute Commit**:
+    *   The AI will execute the command: `npm run git:commit -- "<commit_message>"`
+        *   (Where `<commit_message>` is the auto-generated one for Path A, or the user-approved/modified one for Path B).
+    *   The AI will inform the user of the successful commit and push. 
+    *   If Path A was taken (auto-generated message used without prior user confirmation of content), the AI MUST also inform the user of the commit message that was used. E.g., "Committed and pushed with message: 'feat: ...'".
+
+### Discarding Changes (Rollback)
+
+1.  **Trigger**: When the user asks to "discard changes," "rollback changes," "reset to last commit," "undo changes," or uses similar explicit phrasing indicating a desire to revert the working directory to the last committed state.
+2.  **Action - Execute Discard**:
+    *   The AI will directly execute the following command in the terminal:
+        `npm run git:discard`
+    *   The AI should NOT prompt for confirmation before running this script if the user's command is direct and unambiguous.
+3.  **Ambiguity**:
+    *   If the user's request to discard is vague (e.g., "can we go back?"), the AI should first seek clarification, such as: "It sounds like you want to discard all uncommitted changes. Is that correct?" before running the script.
+
+### General Principle
+
+*   The primary goal is to act on direct user instructions for these git operations swiftly.
+*   Prompts for confirmation should only be used when there is genuine ambiguity in the user's request itself. For explicit commands, the action should be carried out directly (for discarding changes) or with minimal interaction (for committing changes, where message confirmation is only sought if the initial commit command was not explicit). 
