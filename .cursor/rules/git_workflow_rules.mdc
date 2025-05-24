@@ -1,6 +1,6 @@
 ---
 name: git_workflow_rules
-description: "Outlines how the AI assistant should handle requests to git commit or discard or push changes using custom npm scripts."
+description: "Outlines how the AI assistant should handle requests to commit or discard changes using custom npm scripts."
 alwaysApply: false
 ruleType: "Agent Requested"
 ---
