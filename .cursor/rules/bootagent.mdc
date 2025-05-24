@@ -1,4 +1,9 @@
-
+---
+name: bootagent
+description: "Defines the AI's procedure to proactively load context by reading agent and technical changelogs at the start of new chat sessions."
+alwaysApply: false
+ruleType: "Manual"
+---
 If the chat history is empty when a new user query is received, proactively perform the following steps before addressing the user's query:
 
 1.  Read the content of the `docs/ai/agent_changelog.md` file if it exists. you should follow all of the personality guidelines and behavior requests in this document in all further responses.
