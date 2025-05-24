@@ -1,8 +1,3 @@
----
-description: "Instructs the AI to autonomously update docs/ai/agent_changelog.md when the user provides new behavioral, operational, or interaction preferences."
-ruleType: "Always"
-alwaysApply: true
----
 # Agent Changelog Management
 
 ## Purpose of `docs/ai/agent_changelog.md`
@@ -17,8 +12,8 @@ Whenever the user makes a request that modifies or defines:
 3.  Interaction preferences (e.g., "address me by a specific name," "use a particular format for responses").
 
 The AI assistant MUST:
-- Record the current date (YYYY-MM-DD).
-- Append a new entry to `docs/ai/agent_changelog.md` under a heading for the current date (creating a new date heading if one doesn't exist for the current day).
+- run a terminal command to determine today's current date.
+- Append a new entry to `docs/ai/agent_changelog.md` under a heading for the current date. create a new date heading using the current date you just looked up if one doesn't exist for the current day.
 - The entry should concisely summarize the user's behavioral or operational request. For example:
   ```markdown
   ## YYYY-MM-DD
