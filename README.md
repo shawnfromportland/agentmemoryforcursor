@@ -20,8 +20,10 @@ Allows agent to remember what you've requested of it and all the work you've don
 
 ## Setup
 ### Preparation:
-- By default we will assume you have a @/docs folder in your project root containing all of your project specification documents. customize the bootagent.mdc rules if your docs are in a different location or (gasp!) if you have no docs.
-- already have a local copy you are working from of a published remote repository set up.
+By default we will assume:
+- you have a @/docs folder in your project root containing all of your project specification documents. customize the bootagent.mdc rules if your docs are in a different location or (gasp!) if you have no docs.
+- you already have a local copy you are working from of a published remote repository set up.
+- your project and environment is set up to run typescript (may translate this to other languages later, check back!)
   
 ### Installation:
 1. copy all the files in this repo to the matching directories in your cursor project (except for this readme)
