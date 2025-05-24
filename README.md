@@ -26,20 +26,22 @@ Allows agent to remember what you've requested of it and all the work you've don
 ### Installation:
 1. copy all the files in this repo to the matching directories in your cursor project (except for this readme)
 2. (optional) edit @.cursor/rules/bootagent.mdc to reflect any unique considerations for your specific project.
-
-### Usage:
-1. start every new chat thread with "@bootagent". this will invoke the bootagent rule and load all the project specs and agent memory into context.
-2. carry on prompting as normal.
-3. stick with the same chat thread until you bring a minor feature to completion or the thread gets ridiculously long.
-4. whenever your project is in a good working state, prompt "commit the latest" or "commit and push." (or whatever similar wording you prefer). when you commit this way instead of by typing git commands manually, the agent will record a memory of the commit.
-
-### Test if it's working:
+### Verify it's working:
 1. open a new chat and prompt "@bootagent" it should give feedback that its all up to speed with your project and memories.
 2. try one of the examples above. prompt: "I'm going to call you Hal, and you can call me Dave." this should log a memory.
 3. close the chat window, exit cursor.
 4. re-launch cursor
 5. open a new chat and prompt "@bootagent"
 6. ask it what your name is, the agent should remember.
+
+   
+## Usage:
+1. start every new chat thread with "@bootagent". this will invoke the bootagent rule and load all the project specs and agent memory into context.
+2. carry on prompting as normal.
+3. stick with the same chat thread until you bring a minor feature to completion or the thread gets ridiculously long.
+4. whenever your project is in a good working state, prompt "commit the latest" or "commit and push." (or whatever similar wording you prefer). when you commit this way instead of by typing git commands manually, the agent will record a memory of the commit.
+
+
 
    
    
