@@ -25,7 +25,13 @@ Allows agent to remember what you've requested of it and all the work you've don
   
 ### Installation:
 1. copy all the files in this repo to the matching directories in your cursor project (except for this readme)
-2. (optional) edit @.cursor/rules/bootagent.mdc to reflect any unique considerations for your specific project.
+2. add these to your package.json "scripts" section:
+```
+"git:discard": "git reset --hard HEAD && git clean -fd",
+"git:commit": "sh -c 'COMMIT_MSG=\"$1\"; git add . && git commit -m \"$COMMIT_MSG\" && echo \"### $COMMIT_MSG\" > scripts/.tmp_changelog_content.md && ts-node scripts/update-technical-changelog.ts --contentFile scripts/.tmp_changelog_content.md' --"
+  
+```
+3. (optional) edit @.cursor/rules/bootagent.mdc to reflect any unique considerations for your specific project.
 ### Verify it's working:
 1. open a new chat and prompt "@bootagent" it should give feedback that its all up to speed with your project and memories.
 2. try one of the examples above. prompt: "I'm going to call you Hal, and you can call me Dave." this should log a memory.
