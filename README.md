@@ -45,18 +45,17 @@ Allows agent to remember what you've requested of it and all the work you've don
 
    
    
-### How it works:
+## How it works:
 to maintain agent memory, memories are recorded into two separate logs:
 1. @/docs/ai/agent_changelog.md  
-
 records behavioral, operational, and system prompt requests such as names or communication style.
-2. @/docs/ai/technical_changelog.md  
 
+2. @/docs/ai/technical_changelog.md  
 records a changelog of every commit with summaries of changes and a link to the commit on github.  
 
 the bootagent rule has the agent read all these logs and all your project rules which loads it into the current chat's context. 
 
 It might not be perfect but it's quite effective for me! report any issues you have in the issues tab in github.
 
-### See Also:
+## See Also:
 I'm building a personal cursor rules repo: . you can browse and pick and choose any of the rules you find helpful there for your own project. 
