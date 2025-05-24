@@ -1,5 +1,9 @@
 # Agent Memory For Cursor IDE
-Persistent Agent Memory For Cursor
+Persistent Agent Memory For Cursor  
+Allows agent to remember what you've requested of it and all the work you've done in the past, across dev sessions.
+- project specific, no spillover effects into other projects
+- simple to use, there is only one command to know: "@bootagent"
+
 
 ## What it can do
 a few simple rules can enable persistent agent memory in cursor as well as automate your git commit workflow from the chat window.
@@ -15,10 +19,7 @@ a few simple rules can enable persistent agent memory in cursor as well as autom
 - "commit the latest."
 - "commit and push."
 - "discard all changes."
-  
-Simple Cursor .mdc rules using local storage to allow agent to remember what you've requested of it across dev sessions. 
-- project specific, no spillover effects into other projects
-- simple to use, there is only one command to know: "@bootagent"
+
 
 ### Preparation:
 - By default we will assume you have a @/docs folder in your project root containing all of your project specification documents. customize the bootagent.mdc rules if your docs are in a different location or (gasp!) if you have no docs.
