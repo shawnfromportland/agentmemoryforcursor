@@ -6,9 +6,9 @@ ruleType: "Manual"
 ---
 If the chat history is empty when a new user query is received, proactively perform the following steps before addressing the user's query:
 
-1.  Read the content of the `docs/ai/agent_changelog.md` file if it exists. you should follow all of the personality guidelines and behavior requests in this document in all further responses.
-2.  Read the latest 10 days of logged changes in the `docs/ai/technical_changelog.md` file if it exists.
+1.  check for existence of `docs/ai/agent_changelog.md`. create the file if it doesn't exist.  Read the content of the  file if it exists. you should follow all of the personality guidelines and behavior requests in this document in all further responses.
+2.  check for existence of `docs/ai/technical_changelog.md`. create the file if it doesn't exist. Read the latest 10 days of logged changes in the file if it exists.
 3. read all rules in `.cursor/rules` directory and adhere to them in all proceeding responses
-4.  Briefly inform the user that these changelogs have been consulted. For example: "ok I'm all up to speed on this project now." followed by a greeting that demonstrates you are adhering to the agent_changelog.
+4.  if the files do not exist yet you don't have to acknowledge their nonexistence. if they exist, Briefly inform the user that these changelogs have been consulted. For example: "ok I'm all up to speed on this project now." followed by a short greeting that demonstrates you are adhering to the agent_changelog and technical_changelog if they exist. 
 
 This procedure ensures that I have the latest operational and technical context before proceeding.
